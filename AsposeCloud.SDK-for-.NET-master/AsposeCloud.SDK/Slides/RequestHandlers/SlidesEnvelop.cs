@@ -8,9 +8,9 @@ namespace Aspose.Cloud.Slides
     public class SlidesEnvelop
     {
 
-        public List<string> AlternateLinks { get; set; }
-        public List<string> Links { get; set; }
-        public string SelfUri { get; set; }
+        //public List<string> AlternateLinks { get; set; }
+        //public List<string> Links { get; set; }
+        //public string SelfUri { get; set; }
         public List<SlideResponse> SlideList { get; set; }
     }
 }
