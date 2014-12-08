@@ -1,3 +1,5 @@
+<b>Note: </b>A totally revamped and greatly improved version of this SDK is available in Branch Version-2.0. Please check <a href="https://asposecloudnet.codeplex.com/">https://asposecloudnet.codeplex.com/</a> for more details.
+
 #Aspose Cloud SDK for .NET Repository
 
 This repository contains Aspose Cloud SDK for .NET source code. This SDK allows you to work with Aspose REST API in your .NET applications quickly and easily. 
