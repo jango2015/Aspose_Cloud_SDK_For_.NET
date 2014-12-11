@@ -65,9 +65,7 @@ namespace Aspose.Cloud.Common
                 Uri address = new Uri(strURI);
                 System.Net.HttpWebRequest request = (System.Net.HttpWebRequest)System.Net.HttpWebRequest.Create(address);
                 request.Method = strHttpCommand;
-                //if(strHttpCommand == "POST")
-                //request.ContentType = "application/xml";
-                //else
+                request.Headers.Add("x-aspose-client", ".NETSDK/v1.0");
                 request.ContentType = "application/json";
 
                 request.ContentLength = 0;
@@ -95,7 +93,7 @@ namespace Aspose.Cloud.Common
                 System.Net.HttpWebRequest request = (System.Net.HttpWebRequest)System.Net.HttpWebRequest.Create(address);
                 request.Method = strHttpCommand;
                 request.ContentType = "application/json";
-
+                request.Headers.Add("x-aspose-client", ".NETSDK/v1.0");
                 request.ContentLength = arr.Length;
 
                 Stream dataStream = request.GetRequestStream();
@@ -127,7 +125,7 @@ namespace Aspose.Cloud.Common
                 request.Method = strHttpCommand;
                 
                 request.ContentType = "application/json";
-
+                request.Headers.Add("x-aspose-client", ".NETSDK/v1.0");
                 request.ContentLength = streamContent.Length;
 
                 Stream reqStream = request.GetRequestStream();
@@ -168,7 +166,7 @@ namespace Aspose.Cloud.Common
                     request.ContentType = "application/xml";
                 else
                     request.ContentType = "application/json";
-
+                request.Headers.Add("x-aspose-client", ".NETSDK/v1.0");
                 request.ContentLength = arr.Length;
 
                 Stream dataStream = request.GetRequestStream();
