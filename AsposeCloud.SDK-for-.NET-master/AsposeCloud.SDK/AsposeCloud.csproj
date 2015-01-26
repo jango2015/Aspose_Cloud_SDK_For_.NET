@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{232BFF8E-F233-4B6B-B1D0-0A901736D949}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AsposeCloud.SDK</RootNamespace>
+    <AssemblyName>AsposeCloud.SDK</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\Saaspose.SDK-for-.NET-master\Saaspose.SDK\bin\Debug\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BarCode\BarcodeBuilder.cs" />
+    <Compile Include="BarCode\BarcodeReader.cs" />
+    <Compile Include="BarCode\Enums\BarCodeReadType.cs" />
+    <Compile Include="BarCode\Enums\BarCodeType.cs" />
+    <Compile Include="BarCode\Enums\ImageFormat.cs" />
+    <Compile Include="BarCode\Enums\SaveLocation.cs" />
+    <Compile Include="BarCode\GenerationResponse.cs" />
+    <Compile Include="BarCode\RecognitionResponse.cs" />
+    <Compile Include="BarCode\RecognizedBarcode.cs" />
+    <Compile Include="Cells\RequestHandlers\AutoShape.cs" />
+    <Compile Include="Cells\RequestHandlers\Border.cs" />
+    <Compile Include="Cells\RequestHandlers\Cell.cs" />
+    <Compile Include="Cells\RequestHandlers\CellArea.cs" />
+    <Compile Include="Cells\RequestHandlers\Chart.cs" />
+    <Compile Include="Cells\RequestHandlers\ChartArea.cs" />
+    <Compile Include="Cells\ChartEditor.cs" />
+    <Compile Include="Cells\RequestHandlers\Color.cs" />
+    <Compile Include="Cells\RequestHandlers\Column.cs" />
+    <Compile Include="Cells\RequestHandlers\Comment.cs" />
+    <Compile Include="Cells\Converter.cs" />
+    <Compile Include="Cells\RequestHandlers\DataSort.cs" />
+    <Compile Include="Cells\RequestHandlers\DocumentProperty.cs" />
+    <Compile Include="Cells\RequestHandlers\Encryption.cs" />
+    <Compile Include="Cells\Enums\BackgroundMode.cs" />
+    <Compile Include="Cells\Enums\ChartType.cs" />
+    <Compile Include="Cells\Enums\EncryptionType.cs" />
+    <Compile Include="Cells\Enums\FillPattern.cs" />
+    <Compile Include="Cells\Enums\FillPictureType.cs" />
+    <Compile Include="Cells\Enums\FillType.cs" />
+    <Compile Include="Cells\Enums\GradientDirectionType.cs" />
+    <Compile Include="Cells\Enums\GradientFillType.cs" />
+    <Compile Include="Cells\Enums\ImageFormat.cs" />
+    <Compile Include="Cells\Enums\LineType.cs" />
+    <Compile Include="Cells\Enums\MirrorType.cs" />
+    <Compile Include="Cells\Enums\PictureLocation.cs" />
+    <Compile Include="Cells\Enums\Position.cs" />
+    <Compile Include="Cells\Enums\ProtectionType.cs" />
+    <Compile Include="Cells\Enums\RectangleAlignmentType.cs" />
+    <Compile Include="Cells\Enums\SaveFormat.cs" />
+    <Compile Include="Cells\Enums\SaveLocation.cs" />
+    <Compile Include="Cells\Enums\TextureType.cs" />
+    <Compile Include="Cells\Enums\ValueType.cs" />
+    <Compile Include="Cells\Enums\WeightType.cs" />
+    <Compile Include="Cells\Enums\WorksheetProtectionType.cs" />
+    <Compile Include="Cells\RequestHandlers\FillFormat.cs" />
+    <Compile Include="Cells\RequestHandlers\Font.cs" />
+    <Compile Include="Cells\RequestHandlers\FormulaResult.cs" />
+    <Compile Include="Cells\RequestHandlers\GradientFill.cs" />
+    <Compile Include="Cells\RequestHandlers\GradientFillStop.cs" />
+    <Compile Include="Cells\RequestHandlers\Hyperlink.cs" />
+    <Compile Include="Cells\RequestHandlers\Line.cs" />
+    <Compile Include="Cells\RequestHandlers\MergedCell.cs" />
+    <Compile Include="Cells\RequestHandlers\MoveWorksheet.cs" />
+    <Compile Include="Cells\RequestHandlers\Name.cs" />
+    <Compile Include="Cells\RequestHandlers\OleObject.cs" />
+    <Compile Include="Cells\RequestHandlers\PatternFill.cs" />
+    <Compile Include="Cells\RequestHandlers\PicFormatOption.cs" />
+    <Compile Include="Cells\RequestHandlers\Picture.cs" />
+    <Compile Include="Cells\RequestHandlers\Protection.cs" />
+    <Compile Include="Cells\RequestHandlers\ProtectionOptions.cs" />
+    <Compile Include="Cells\ResponseHandlers\AutoShapesResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\CalculateFormulaResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\CellsResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\ChartEditorResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\ChartsResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\ColumnsResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\CommentsResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\ConditionalFormattingResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\DocumentPropertiesResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\HyperlinksResponse.cs" />
+    <Compile Include="Cells\RequestHandlers\LinkResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\MergedCellsResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\NameResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\NamesResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\OleObjectsResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\PicturesResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\RowsResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\TextEditorResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\TextItemsResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\ValidationsResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\ValueResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\WorkbookResponse.cs" />
+    <Compile Include="Cells\RequestHandlers\WorkSheetProtectionRequest.cs" />
+    <Compile Include="Cells\ResponseHandlers\WorksheetResponse.cs" />
+    <Compile Include="Cells\ResponseHandlers\WorksheetsResponse.cs" />
+    <Compile Include="Cells\RequestHandlers\Row.cs" />
+    <Compile Include="Cells\RequestHandlers\SolidFill.cs" />
+    <Compile Include="Cells\RequestHandlers\SortKey.cs" />
+    <Compile Include="Cells\RequestHandlers\Style.cs" />
+    <Compile Include="Cells\Enums\RowsOperateOption.cs" />
+    <Compile Include="Cells\Enums\SplitDocumentFormats.cs" />
+    <Compile Include="Cells\TextEditor.cs" />
+    <Compile Include="Cells\RequestHandlers\TextItem.cs" />
+    <Compile Include="Cells\RequestHandlers\TextureFill.cs" />
+    <Compile Include="Cells\RequestHandlers\TilePicOption.cs" />
+    <Compile Include="Cells\RequestHandlers\Validation.cs" />
+    <Compile Include="Cells\Workbook.cs" />
+    <Compile Include="Cells\Worksheet.cs" />
+    <Compile Include="Common\BaseResponse.cs" />
+    <Compile Include="Common\Product.cs" />
+    <Compile Include="Common\AsposeApp.cs" />
+    <Compile Include="Common\SourceFilesList.cs" />
+    <Compile Include="Common\Utils.cs" />
+    <Compile Include="Ocr\Enums\LanguageName.cs" />
+    <Compile Include="Ocr\Extractor.cs" />
+    <Compile Include="Ocr\RequestHandlers\Part.cs" />
+    <Compile Include="Ocr\RequestHandlers\OCREnvelop.cs" />
+    <Compile Include="Ocr\ResponseHandlers\OCRResponse .cs" />
+    <Compile Include="Pdf\FormFields.cs" />
+    <Compile Include="Pdf\RequestHandlers\Annotation.cs" />
+    <Compile Include="Pdf\AnnotationEditor.cs" />
+    <Compile Include="Pdf\RequestHandlers\Attachment.cs" />
+    <Compile Include="Pdf\RequestHandlers\Bookmark.cs" />
+    <Compile Include="Pdf\RequestHandlers\Color.cs" />
+    <Compile Include="Pdf\Enums\SignatureType.cs" />
+    <Compile Include="Pdf\RequestHandlers\DateTimeSignature.cs" />
+    <Compile Include="Pdf\RequestHandlers\PdfDocument.cs" />
+    <Compile Include="Pdf\RequestHandlers\TextState.cs" />
+    <Compile Include="Pdf\ResponseHandlers\DocumentResponse.cs" />
+    <Compile Include="Pdf\RequestHandlers\LinkElement.cs" />
+    <Compile Include="Pdf\RequestHandlers\Rectangle.cs" />
+    <Compile Include="Pdf\ResponseHandlers\SplitPDFResponse.cs" />
+    <Compile Include="Pdf\ResponseHandlers\ReplaceTextResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Pdf\ResponseHandlers\SagmentResponse.cs" />
+    <Compile Include="Pdf\ResponseHandlers\SplitPdfResult.cs" />
+    <Compile Include="Pdf\ResponseHandlers\StampResponse.cs" />
+    <Compile Include="Pdf\RequestHandlers\WordResponse.cs" />
+    <Compile Include="Pdf\RequestHandlers\WordsEnvelop.cs" />
+    <Compile Include="Pdf\ResponseHandlers\WordsPerPage.cs" />
+    <Compile Include="Pdf\RequestHandlers\Signature.cs" />
+    <Compile Include="Pdf\SplitDocumentFormat.cs" />
+    <Compile Include="Pdf\StampRequest.cs" />
+    <Compile Include="Pdf\RequestHandlers\TextReplace.cs" />
+    <Compile Include="Pdf\Enums\LinkActionType.cs" />
+    <Compile Include="Pdf\Enums\LinkHighlightingMode.cs" />
+    <Compile Include="Pdf\RequestHandlers\Link.cs" />
+    <Compile Include="Pdf\ResponseHandlers\AnnotationResponse.cs" />
+    <Compile Include="Pdf\RequestHandlers\AnnotationsEnvelop.cs" />
+    <Compile Include="Pdf\ResponseHandlers\AnnotationsResponse.cs" />
+    <Compile Include="Pdf\ResponseHandlers\AttachmentResponse.cs" />
+    <Compile Include="Pdf\RequestHandlers\AttachmentsEnvelop.cs" />
+    <Compile Include="Pdf\ResponseHandlers\AttachmentsResponse.cs" />
+    <Compile Include="Pdf\ResponseHandlers\BookmarkResponse.cs" />
+    <Compile Include="Pdf\RequestHandlers\BookmarksEnvelop.cs" />
+    <Compile Include="Pdf\ResponseHandlers\BookmarksResponse.cs" />
+    <Compile Include="Pdf\RequestHandlers\DocumentPropertyValue.cs" />
+    <Compile Include="Pdf\ResponseHandlers\DocumentPropertyRequest.cs" />
+    <Compile Include="Pdf\ResponseHandlers\PdfLinkResponse.cs" />
+    <Compile Include="Pdf\RequestHandlers\PdfLinksEnvelop.cs" />
+    <Compile Include="Pdf\ResponseHandlers\PdfLinksResponse.cs" />
+    <Compile Include="Pdf\RequestHandlers\TextFormat.cs" />
+    <Compile Include="Pdf\ResponseHandlers\TextFormatResponse.cs" />
+    <Compile Include="Pdf\RequestHandlers\TextItem.cs" />
+    <Compile Include="Pdf\Extractor.cs" />
+    <Compile Include="Pdf\Enums\ConvertImageFormat.cs" />
+    <Compile Include="Pdf\Enums\SaveFormat.cs" />
+    <Compile Include="Pdf\Enums\SaveLocation.cs" />
+    <Compile Include="Pdf\Enums\ExtractImageFormat.cs" />
+    <Compile Include="Pdf\Converter.cs" />
+    <Compile Include="Pdf\RequestHandlers\TextItemsEnvelop.cs" />
+    <Compile Include="Pdf\ResponseHandlers\TextItemsResponse.cs" />
+    <Compile Include="Pdf\ResponseHandlers\TextItemResponse.cs" />
+    <Compile Include="Pdf\RequestHandlers\ImageResponse.cs" />
+    <Compile Include="Pdf\RequestHandlers\ImagesEnvelop.cs" />
+    <Compile Include="Pdf\ResponseHandlers\ImagesResponse.cs" />
+    <Compile Include="Pdf\ResponseHandlers\FormFieldResponse.cs" />
+    <Compile Include="Pdf\RequestHandlers\FormField.cs" />
+    <Compile Include="Pdf\RequestHandlers\FormFieldsEnvelop.cs" />
+    <Compile Include="Pdf\RequestHandlers\DocumentPropertiesEnvelop.cs" />
+    <Compile Include="Pdf\Document.cs" />
+    <Compile Include="Pdf\ResponseHandlers\DocumentPropertiesResponse.cs" />
+    <Compile Include="Pdf\RequestHandlers\DocumentProperty.cs" />
+    <Compile Include="Pdf\ResponseHandlers\DocumentPropertyResponse.cs" />
+    <Compile Include="Pdf\ResponseHandlers\FormFieldsResponse.cs" />
+    <Compile Include="Pdf\RequestHandlers\LinkResponse.cs" />
+    <Compile Include="Pdf\RequestHandlers\PageResponse.cs" />
+    <Compile Include="Pdf\RequestHandlers\PagesEnvelop.cs" />
+    <Compile Include="Pdf\ResponseHandlers\PagesResponse.cs" />
+    <Compile Include="Pdf\TextEditor.cs" />
+    <Compile Include="Pdf\RequestHandlers\Image.cs" />
+    <Compile Include="Slides\RequestHandlers\BackgroundStyles.cs" />
+    <Compile Include="Slides\RequestHandlers\ColorScheme.cs" />
+    <Compile Include="Slides\RequestHandlers\CustomProperty.cs" />
+    <Compile Include="Slides\RequestHandlers\CustomPropertyList.cs" />
+    <Compile Include="Slides\Document.cs" />
+    <Compile Include="Slides\RequestHandlers\DocumentProperty.cs" />
+    <Compile Include="Slides\Enums\ImageFormat.cs" />
+    <Compile Include="Slides\Enums\Orientation.cs" />
+    <Compile Include="Slides\Enums\SaveFormat.cs" />
+    <Compile Include="Slides\Enums\Size.cs" />
+    <Compile Include="Slides\Enums\Type.cs" />
+    <Compile Include="Slides\Extractor.cs" />
+    <Compile Include="Slides\RequestHandlers\EffectStyles.cs" />
+    <Compile Include="Slides\RequestHandlers\FillStyles.cs" />
+    <Compile Include="Slides\RequestHandlers\FontScheme.cs" />
+    <Compile Include="Slides\RequestHandlers\FormatScheme.cs" />
+    <Compile Include="Slides\RequestHandlers\LineStyles.cs" />
+    <Compile Include="Slides\RequestHandlers\Major.cs" />
+    <Compile Include="Slides\RequestHandlers\Minor.cs" />
+    <Compile Include="Slides\RequestHandlers\Placeholder.cs" />
+    <Compile Include="Slides\ResponseHandlers\ColorSchemeResponse.cs" />
+    <Compile Include="Slides\RequestHandlers\DocumentPropertiesEnvelop.cs" />
+    <Compile Include="Slides\ResponseHandlers\DocumentPropertiesResponse.cs" />
+    <Compile Include="Slides\ResponseHandlers\DocumentPropertyResponse.cs" />
+    <Compile Include="Slides\RequestHandlers\FillFormatURI.cs" />
+    <Compile Include="Slides\ResponseHandlers\FontSchemeResponse.cs" />
+    <Compile Include="Slides\ResponseHandlers\FormatSchemeResponse.cs" />
+    <Compile Include="Slides\RequestHandlers\ImageResponse.cs" />
+    <Compile Include="Slides\RequestHandlers\ImagesEnvelop.cs" />
+    <Compile Include="Slides\RequestHandlers\Images.cs" />
+    <Compile Include="Slides\ResponseHandlers\ImagesResponse.cs" />
+    <Compile Include="Slides\RequestHandlers\LineFormatURI.cs" />
+    <Compile Include="Slides\RequestHandlers\LinkResponse.cs" />
+    <Compile Include="Slides\ResponseHandlers\PlaceholderResponse.cs" />
+    <Compile Include="Slides\RequestHandlers\PlaceholdersEnvelop.cs" />
+    <Compile Include="Slides\RequestHandlers\Placeholders.cs" />
+    <Compile Include="Slides\ResponseHandlers\PlaceholdersResponse.cs" />
+    <Compile Include="Slides\RequestHandlers\PlaceholderURI.cs" />
+    <Compile Include="Slides\RequestHandlers\ShapeResponse.cs" />
+    <Compile Include="Slides\RequestHandlers\ShapesEnvelop.cs" />
+    <Compile Include="Slides\RequestHandlers\Shapes.cs" />
+    <Compile Include="Slides\ResponseHandlers\ShapesResponse.cs" />
+    <Compile Include="Slides\RequestHandlers\ShapeURI.cs" />
+    <Compile Include="Slides\RequestHandlers\Slide.cs" />
+    <Compile Include="Slides\ResponseHandlers\SlideDetailResponse.cs" />
+    <Compile Include="Slides\RequestHandlers\SlideResponse.cs" />
+    <Compile Include="Slides\RequestHandlers\SlidesEnvelop.cs" />
+    <Compile Include="Slides\ResponseHandlers\SlidesResponse.cs" />
+    <Compile Include="Slides\RequestHandlers\SolidFillEnvelop.cs" />
+    <Compile Include="Slides\RequestHandlers\SlideTheme.cs" />
+    <Compile Include="Slides\ResponseHandlers\SolidFillResponse.cs" />
+    <Compile Include="Slides\RequestHandlers\TextItemsEnvelop.cs" />
+    <Compile Include="Slides\ResponseHandlers\TextItemsResponse.cs" />
+    <Compile Include="Slides\RequestHandlers\Theme.cs" />
+    <Compile Include="Slides\RequestHandlers\ThemeColorScheme.cs" />
+    <Compile Include="Slides\RequestHandlers\ThemeFontScheme.cs" />
+    <Compile Include="Slides\RequestHandlers\ThemeFormatScheme.cs" />
+    <Compile Include="Slides\ResponseHandlers\ThemeResponse.cs" />
+    <Compile Include="Slides\RequestHandlers\UriResponse.cs" />
+    <Compile Include="Slides\RequestHandlers\Shape.cs" />
+    <Compile Include="Slides\RequestHandlers\TextItem.cs" />
+    <Compile Include="Storage\DiscResponse.cs" />
+    <Compile Include="Storage\DiscUsage.cs" />
+    <Compile Include="Storage\ExistResponse.cs" />
+    <Compile Include="Storage\File.cs" />
+    <Compile Include="Storage\FileCollection.cs" />
+    <Compile Include="Storage\FileExist.cs" />
+    <Compile Include="Storage\Folder.cs" />
+    <Compile Include="Storage\FolderResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Storage\StorageType.cs" />
+    <Compile Include="Words\Enums\ConversionStatus.cs" />
+    <Compile Include="Words\Enums\DrawingObjectsRenderFormat.cs" />
+    <Compile Include="Words\RequestHandlers\List.cs" />
+    <Compile Include="Words\RequestHandlers\Bookmark.cs" />
+    <Compile Include="Words\RequestHandlers\BookmarkData.cs" />
+    <Compile Include="Words\RequestHandlers\DocumentEntry.cs" />
+    <Compile Include="Words\ResponseHandlers\BookmarkResponse.cs" />
+    <Compile Include="Words\Converter.cs" />
+    <Compile Include="Words\Document.cs" />
+    <Compile Include="Words\DocumentBuilder.cs" />
+    <Compile Include="Words\RequestHandlers\DocumentEntryList.cs" />
+    <Compile Include="Words\RequestHandlers\DocumentInfo.cs" />
+    <Compile Include="Words\RequestHandlers\DocumentPropertiesResponse.cs" />
+    <Compile Include="Words\RequestHandlers\DocumentProperty.cs" />
+    <Compile Include="Words\ResponseHandlers\DocumentResourceResponse.cs" />
+    <Compile Include="Words\ResponseHandlers\DocumentResponse.cs" />
+    <Compile Include="Words\RequestHandlers\DocumentTextItemsResponse.cs" />
+    <Compile Include="Words\ResponseHandlers\DocumentTextResponse.cs" />
+    <Compile Include="Words\RequestHandlers\DrawingObject.cs" />
+    <Compile Include="Words\RequestHandlers\DrawingObjects.cs" />
+    <Compile Include="Words\Extractor.cs" />
+    <Compile Include="Words\Field.cs" />
+    <Compile Include="Words\RequestHandlers\LinkResponse.cs" />
+    <Compile Include="Words\MailMerge.cs" />
+    <Compile Include="Words\RequestHandlers\Paragraph.cs" />
+    <Compile Include="Words\Protection.cs" />
+    <Compile Include="Words\Enums\ProtectionType.cs" />
+    <Compile Include="Words\RequestHandlers\DocumentLink.cs" />
+    <Compile Include="Words\ResponseHandlers\DrawingObjectsResponse.cs" />
+    <Compile Include="Words\RequestHandlers\FieldNames.cs" />
+    <Compile Include="Words\ResponseHandlers\MergeFieldResponse.cs" />
+    <Compile Include="Words\RequestHandlers\Page.cs" />
+    <Compile Include="Words\RequestHandlers\ProtectionData.cs" />
+    <Compile Include="Words\RequestHandlers\ProtectionRequest.cs" />
+    <Compile Include="Words\ResponseHandlers\ProtectionResponse.cs" />
+    <Compile Include="Words\RequestHandlers\ReplaceTextResponse.cs" />
+    <Compile Include="Words\RequestHandlers\SourceDocument.cs" />
+    <Compile Include="Words\RequestHandlers\SplitResult.cs" />
+    <Compile Include="Words\ResponseHandlers\SplitResultResponse.cs" />
+    <Compile Include="Words\Enums\SaveFormat.cs" />
+    <Compile Include="Words\RequestHandlers\SaveAsTiffOptions.cs" />
+    <Compile Include="Words\Enums\SplitDocumentFormats.cs" />
+    <Compile Include="Words\Enums\TiffCompression.cs" />
+    <Compile Include="Words\Validator.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
