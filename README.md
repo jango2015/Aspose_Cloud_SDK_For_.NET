@@ -27,74 +27,74 @@
       </tr>
       <tr>
         <td>
-          <p>CellsService</p>
+          CellsService
         </td>
         <td>
-          <p>Provides   methods to manipulate spreadsheet file formats using Aspose.Cloud for Cloud.</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p>WordsService</p>
-        </td>
-        <td>
-          <p>Provides   methods to manipulate word processing file formats using Aspose.Words for   Cloud.</p>
+          Provides methods to manipulate spreadsheet file formats using Aspose.Cloud for Cloud.
         </td>
       </tr>
       <tr>
         <td>
-          <p>PDFService</p>
+          WordsService
         </td>
         <td>
-          <p>Provides   methods to manipulate PDF file formats using Aspose.Pdf for Cloud.</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p>SlidesService</p>
-        </td>
-        <td>
-          <p>Provides   methods to manipulate presentations file formats using Aspose.Slides for   Cloud.</p>
+          Provides methods to manipulate word processing file formats using Aspose.Words for Cloud.
         </td>
       </tr>
       <tr>
         <td>
-          <p>BarCodeService</p>
+          PDFService
         </td>
         <td>
-          <p>Provides   methods to create and detect Barcodes images using Aspose.BarCode for Cloud.</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p>TasksService</p>
-        </td>
-        <td>
-          <p>Provides   methods to process Microsoft Project file formats using Aspose.Tasks for   Cloud.</p>
+          Provides methods to manipulate PDF file formats using Aspose.Pdf for Cloud.
         </td>
       </tr>
       <tr>
         <td>
-          <p>ImagingService</p>
+          SlidesService
         </td>
         <td>
-          <p>Provides   methods to process image file formats using Aspose.Imaging for Cloud.</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p>EmailService</p>
-        </td>
-        <td>
-          <p>Provides   methods to manipulate email file formats using Aspose.Email for Cloud</p>
+          Provides methods to manipulate presentations file formats using Aspose.Slides for Cloud.
         </td>
       </tr>
       <tr>
         <td>
-          <p>OCRService</p>
+          BarCodeService
         </td>
         <td>
-          <p>Provides   methods to detect text from images using Aspose.OCR for Cloud.</p>
+          Provides methods to create and detect Barcodes images using Aspose.BarCode for Cloud.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          TasksService
+        </td>
+        <td>
+          Provides methods to process Microsoft Project file formats using Aspose.Tasks for Cloud.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          ImagingService
+        </td>
+        <td>
+          Provides methods to process image file formats using Aspose.Imaging for Cloud.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          EmailService
+        </td>
+        <td>
+          Provides methods to manipulate email file formats using Aspose.Email for Cloud
+        </td>
+      </tr>
+      <tr>
+        <td>
+          OCRService
+        </td>
+        <td>
+          Provides methods to detect text from images using Aspose.OCR for Cloud.
         </td>
       </tr>
     </tbody>
@@ -112,50 +112,50 @@
       </tr>
       <tr>
         <td>
-          <p>App</p>
+          App
         </td>
         <td>
-          <p>Provides   methods to Get, Create, Update and Delete Aspose Cloud Applications.</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p>StorageService</p>
-        </td>
-        <td>
-          <p>Provides   methods to work with Aspose Cloud Storage.</p>
+          Provides methods to Get, Create, Update and Delete Aspose Cloud Applications.
         </td>
       </tr>
       <tr>
         <td>
-          <p>HerokuService</p>
+          StorageService
         </td>
         <td>
-          <p>Provides   methods to work with Heroku.</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p>SDKService</p>
-        </td>
-        <td>
-          <p>Provides   method to get Aspose Cloud SDK metadata.</p>
+          Provides methods to work with Aspose Cloud Storage.
         </td>
       </tr>
       <tr>
         <td>
-          <p>StatisticsService</p>
+          HerokuService
         </td>
         <td>
-          <p>Provides   method to get Aspose Cloud statistics.</p>
+          Provides methods to work with Heroku.
         </td>
       </tr>
       <tr>
         <td>
-          <p>UsageService</p>
+          SDKService
         </td>
         <td>
-          <p>Provides   method to get Aspose Cloud client usage logs.</p>
+          Provides method to get Aspose Cloud SDK metadata.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          StatisticsService
+        </td>
+        <td>
+          Provides method to get Aspose Cloud statistics.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          UsageService
+        </td>
+        <td>
+          Provides method to get Aspose Cloud client usage logs.
         </td>
       </tr>
     </tbody>
