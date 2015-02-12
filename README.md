@@ -168,8 +168,8 @@
 
 
   <h3>System Requirements</h3>
-  <p>You can use the Aspose Cloud SDK for .NET library in any version of Visual Studio as long as your project version is .NET 2.0 or higher.</p>
-  <p>In order to run the source code of the SDK you need to have one of the following Visual Studio version installed</p>
+  <p>You can use the Aspose Cloud SDK for .NET library in all your projects running on NET 2.0 or higher.</p>
+  <p>In order to use the SDK library and run the source code of the SDK you need to have one of the following Visual Studio version installed</p>
   <ul>
     <li>Visual Studio 2010</li>
     <li>Visual Studio 2012</li>
