@@ -271,7 +271,11 @@ namespace Aspose.Cloud
             {
                 // PUT 	storage/folder/{path}?appSID={appSID}&storage={storage}&newdest={newdest}&destStorage={destStorage}
 
-                string apiUrl = string.Format(@"storage/folder/{0}?storage={1}&newdest={2}&destStorage={3}", path, storage, newdest, destStorage);
+                string apiUrl = string.Format(@"storage/folder/{0}?storage={1}", path, storage);
+
+                if (!string.IsNullOrEmpty(newdest)) apiUrl += string.Format("&newdest={0}", newdest);
+                if (!string.IsNullOrEmpty(destStorage)) apiUrl += string.Format("&destStorage={0}", destStorage);
+
                 ServiceController.Put(apiUrl, AppSid, AppKey);
             }
 
@@ -343,8 +347,8 @@ namespace Aspose.Cloud
 
     public class DiscUsage
     {
-        public int UsedSize { get; set; }
-        public int TotalSize { get; set; }
+        public long UsedSize { get; set; }
+        public long TotalSize { get; set; }
     }
 
     public class DiscUsageResponse
