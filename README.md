@@ -6,7 +6,7 @@
       <img title="Free Download - Aspose Cloud SDK for .NET" src="http://cdn.aspose.com/Images/marketplace/free-download-icon-aspose-mp.png" alt="Free Download" />
     </a>
     <a title="Video Demo - Aspose Cloud SDK for .NET" href="https://www.youtube.com/watch?v=1EbUgpte97s">
-      <img title="Video Demo - DNN Exchange Sync" src="http://cdn.aspose.com/Images/marketplace/video-demo-icon-aspose-mp.png" alt="Video Demo" />
+      <img title="Video Demo - Aspose Cloud SDK for .NET" src="http://cdn.aspose.com/Images/marketplace/video-demo-icon-aspose-mp.png" alt="Video Demo" />
     </a>
     <a title="Source Code - Aspose Cloud SDK for .NET" href="https://asposecloudnet.codeplex.com/SourceControl/latest">
       <img title="Source Code - Aspose Cloud SDK for .NET" src="http://cdn.aspose.com/Images/marketplace/open-source-icon-aspose-mp.png" alt="Open Source" />
@@ -213,4 +213,7 @@
   </p>
   <h3>Customer Feedback</h3>
   <p>Your feedback is very important to us. Please feel free to provide feedback and raise feature requirements. We are keen to implement customer driven features since we are a 100% customer driven company.</p>
+  <h3>Video Demo</h3>
+<p>Please check <a href="https://www.youtube.com/watch?v=1EbUgpte97s">this video</a> to see it in action.</p>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/1EbUgpte97s?rel=0" frameborder="0" allowfullscreen></iframe></p>
 </div>
