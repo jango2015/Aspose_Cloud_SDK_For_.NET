@@ -506,5 +506,56 @@ namespace Aspose.CloudTests
             }
         }
 
+        [TestMethod()]
+        public void Cells_PivotTable_Tests()
+        {
+            try
+            {
+                storageService.File.CopyFile(Utils.CloudStorage_Input_Folder + "/cells-sample.xlsx", Utils.CloudStorage_Output_Folder + "/cells-sample.xlsx");
+
+                string name = "cells-sample.xlsx";
+
+                PivotTablesResponse pivotTablesResponse = cellsService.PivotTable.GetWorksheetPivottablesInfo(name, "sheet6", Utils.CloudStorage_Output_Folder);
+                PivotTableResponse pivotTableResponse = cellsService.PivotTable.GetWorksheetPivottableInfoByIndex(name, "sheet6", 0, Utils.CloudStorage_Output_Folder);
+                cellsService.PivotTable.DeleteWorksheetPivotTableByIndex(name, "sheet6", 0, Utils.CloudStorage_Output_Folder);
+                cellsService.PivotTable.DeleteWorksheetPivotTables(name, "sheet6", Utils.CloudStorage_Output_Folder);
+
+                CreatePivotTableRequest createPivotTableRequest = new CreatePivotTableRequest();
+                createPivotTableRequest.Name = "Test Pivot Table";
+                createPivotTableRequest.SourceData = "A1:C7";
+                createPivotTableRequest.DestCellName = "H10";
+                createPivotTableRequest.UseSameSource = true;
+
+                createPivotTableRequest.PivotFieldRows = new List<int>();
+                createPivotTableRequest.PivotFieldRows.Add(1);
+
+                createPivotTableRequest.PivotFieldColumns = new List<int>();
+                createPivotTableRequest.PivotFieldColumns.Add(1);
+
+                createPivotTableRequest.PivotFieldData = new List<int>();
+                createPivotTableRequest.PivotFieldData.Add(1);
+
+                cellsService.PivotTable.AddAPivotTableIntoWorksheet(name, "sheet7", createPivotTableRequest, Utils.CloudStorage_Output_Folder);
+
+                PivotTableFieldRequest pivotTableFieldRequest = new PivotTableFieldRequest();
+                pivotTableFieldRequest.Data = new List<int>();
+                pivotTableFieldRequest.Data.Add(1);
+                pivotTableFieldRequest.Data.Add(2);
+                cellsService.PivotTable.AddPivotFieldIntoIntoPivotTable(name, "sheet6", 0, "Row", pivotTableFieldRequest, Utils.CloudStorage_Output_Folder);
+
+                WorkbookStyleResponse workbookStyleResponse = cellsService.WorksheetColumns.ReadCellStyleInfo(name, "sheet6", "A8", Utils.CloudStorage_Output_Folder);
+
+                cellsService.PivotTable.UpdateCellStyleForPivotTable(name, "sheet6", 0, 1, 1, workbookStyleResponse.Style, Utils.CloudStorage_Output_Folder);
+
+                cellsService.PivotTable.UpdateStyleForPivotTable(name, "sheet6", 0, workbookStyleResponse.Style, Utils.CloudStorage_Output_Folder);
+
+                storageService.File.DownloadFile(Utils.CloudStorage_Output_Folder + "/cells-sample.xlsx", "d:\\cells-sample.xlsx");
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+        }
+
     }
 }

@@ -29,6 +29,7 @@ namespace Aspose.Cloud
             Workbook = new CellsWorkbook(AppSid, AppKey);
             Worksheets = new CellsWorksheet(AppSid, AppKey);
             WorksheetValidations = new CellsWorksheetValidation(AppSid, AppKey);
+            PivotTable = new CellsPivotTable(AppSid, AppKey);
         }
 
         public CellsWorksheetColumn WorksheetColumns { get; set; }
@@ -44,6 +45,7 @@ namespace Aspose.Cloud
         public CellsWorkbook Workbook { get; set; }
         public CellsWorksheet Worksheets { get; set; }
         public CellsWorksheetValidation WorksheetValidations { get; set; }
+        public CellsPivotTable PivotTable { get; set; }
 
         public class CellsWorksheetColumn
         {
@@ -2848,6 +2850,150 @@ namespace Aspose.Cloud
                 ServiceController.Delete(apiUrl, AppSid, AppKey);
             }
         }
+
+        public class CellsPivotTable
+        {
+            public string AppKey { get; set; }
+            public string AppSid { get; set; }
+
+            internal CellsPivotTable(string appSid, string appKey) { AppSid = appSid; AppKey = appKey; }
+
+            /// <summary>
+            /// Get worksheet pivottables info.
+            /// </summary>
+            /// <param name="name"></param>
+            /// <param name="sheetName"></param>
+            /// <param name="folder"></param>
+            /// <param name="storage"></param>
+            /// <returns></returns>
+            public PivotTablesResponse GetWorksheetPivottablesInfo(string name, string sheetName, string folder, string storage = "")
+            {
+                // get cells/{name}/worksheets/{sheetName}/pivottables?appSid={appSid}&storage={storage}&folder={folder}
+
+                string apiUrl = string.Format(@"cells/{0}/worksheets/{1}/pivottables?storage={2}&folder={3}", name, sheetName, storage, folder);
+                JObject jObject = JObject.Parse(ServiceController.Get(apiUrl, AppSid, AppKey));
+                PivotTablesResponse pivotTablesResponse = jObject.ToObject<PivotTablesResponse>();
+                return pivotTablesResponse;
+            }
+
+            /// <summary>
+            /// Add a pivot table into worksheet.
+            /// </summary>
+            /// <param name="name"></param>
+            /// <param name="sheetName"></param>
+            /// <param name="createPivotTableRequest"></param>
+            /// <param name="folder"></param>
+            /// <param name="storage"></param>
+            /// <returns></returns>
+            public PivotTableResponse AddAPivotTableIntoWorksheet(string name, string sheetName, CreatePivotTableRequest createPivotTableRequest, string folder, string storage = "")
+            {
+                // put cells/{name}/worksheets/{sheetName}/pivottables?appSid={appSid}&storage={storage}&folder={folder}
+
+                string apiUrl = string.Format(@"cells/{0}/worksheets/{1}/pivottables?storage={2}&folder={3}", name, sheetName, storage, folder);
+                
+                JObject jObject = JObject.Parse(ServiceController.Put(apiUrl, AppSid, AppKey, JsonConvert.SerializeObject(createPivotTableRequest)));
+                PivotTableResponse pivotTableResponse = jObject.ToObject<PivotTableResponse>();
+                return pivotTableResponse;
+            }
+            
+            /// <summary>
+            /// Delete worksheet pivot tables
+            /// </summary>
+            /// <param name="name"></param>
+            /// <param name="sheetName"></param>
+            /// <param name="folder"></param>
+            /// <param name="storage"></param>
+            public void DeleteWorksheetPivotTables(string name, string sheetName, string folder, string storage = "")
+            {
+                // delete cells/{name}/worksheets/{sheetName}/pivottables?appSid={appSid}&storage={storage}&folder={folder}
+
+                string apiUrl = string.Format(@"cells/{0}/worksheets/{1}/pivottables?storage={2}&folder={3}", name, sheetName, storage, folder);
+
+                ServiceController.Delete(apiUrl, AppSid, AppKey);
+            }
+
+            /// <summary>
+            /// Get worksheet pivottable info by index.
+            /// </summary>
+            /// <param name="name"></param>
+            /// <param name="sheetName"></param>
+            /// <param name="pivottableIndex"></param>
+            /// <param name="folder"></param>
+            /// <param name="storage"></param>
+            /// <returns></returns>
+            public PivotTableResponse GetWorksheetPivottableInfoByIndex(string name, string sheetName, int pivottableIndex, string folder, string storage = "")
+            {
+                // get cells/{name}/worksheets/{sheetName}/pivottables/{pivottableIndex}?appSid={appSid}&storage={storage}&folder={folder}
+
+                string apiUrl = string.Format(@"cells/{0}/worksheets/{1}/pivottables/{2}?storage={3}&folder={4}", name, sheetName, pivottableIndex, storage, folder);
+
+                JObject jObject = JObject.Parse(ServiceController.Get(apiUrl, AppSid, AppKey));
+                PivotTableResponse pivotTableResponse = jObject.ToObject<PivotTableResponse>();
+                return pivotTableResponse; 
+            }
+
+            /// <summary>
+            /// Add pivot field into into pivot table
+            /// </summary>
+            /// <param name="name"></param>
+            /// <param name="sheetName"></param>
+            /// <param name="pivotTableIndex"></param>
+            /// <param name="pivotTableFieldRequest"></param>
+            /// <param name="folder"></param>
+            /// <param name="storage"></param>
+            public void AddPivotFieldIntoIntoPivotTable(string name, string sheetName, int pivotTableIndex, string pivotFieldType, PivotTableFieldRequest pivotTableFieldRequest, string folder, string storage = "")
+            {
+                //put   cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/PivotField?appSid={appSid}&storage={storage}&folder={folder}&pivotFieldType={pivotFieldType}
+
+                string apiUrl = string.Format(@"cells/{0}/worksheets/{1}/pivottables/{2}/PivotField?storage={3}&folder={4}&pivotFieldType={5}", name, sheetName, pivotTableIndex, storage, folder, pivotFieldType);
+
+                JObject jObject = JObject.Parse(ServiceController.Put(apiUrl, AppSid, AppKey, JsonConvert.SerializeObject(pivotTableFieldRequest)));
+            }
+
+
+            // Update cell style for pivot table
+            public void UpdateCellStyleForPivotTable(string name, string sheetName, int pivotTableIndex, int column, int row, WorkbookStyle style, string folder, string storage = "")
+            {
+                // post cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/Format?appSid={appSid}&storage={storage}&folder={folder}
+
+                string apiUrl = string.Format(@"cells/{0}/worksheets/{1}/pivottables/{2}/Format?storage={3}&folder={4}&column={5}&row={6}", name, sheetName, pivotTableIndex, storage, folder, column, row);
+
+                JObject jObject = JObject.Parse(ServiceController.Post(apiUrl, AppSid, AppKey, JsonConvert.SerializeObject(style)));
+ 
+            }
+
+
+
+            // Update style for pivot table
+
+            public void UpdateStyleForPivotTable(string name, string sheetName, int pivotTableIndex, WorkbookStyle style, string folder, string storage = "")
+            {
+                //post  cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/FormatAll?appSid={appSid}&storage={storage}&folder={folder}
+
+                string apiUrl = string.Format(@"cells/{0}/worksheets/{1}/pivottables/{2}/FormatAll?storage={3}&folder={4}", name, sheetName, pivotTableIndex, storage, folder);
+
+                JObject jObject = JObject.Parse(ServiceController.Post(apiUrl, AppSid, AppKey, JsonConvert.SerializeObject(style)));
+ 
+            }
+
+
+            /// <summary>
+            /// Delete worksheet pivot table by index
+            /// </summary>
+            /// <param name="name"></param>
+            /// <param name="sheetName"></param>
+            /// <param name="pivotTableIndex"></param>
+            /// <param name="folder"></param>
+            /// <param name="storage"></param>
+            public void DeleteWorksheetPivotTableByIndex(string name, string sheetName, int pivotTableIndex, string folder, string storage = "")
+            {
+                //     delete cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}?appSid={appSid}&storage={storage}&folder={folder}
+
+                string apiUrl = string.Format(@"cells/{0}/worksheets/{1}/pivottables/{2}?storage={3}&folder={4}", name, sheetName, pivotTableIndex, storage, folder);
+
+                ServiceController.Delete(apiUrl, AppSid, AppKey);
+            }
+        }
     }
 
     public class Style
@@ -2886,7 +3032,7 @@ namespace Aspose.Cloud
     public class Font
     {
         public Color Color { get; set; }
-        public double DoubleSize { get; set; }
+        public int DoubleSize { get; set; }
         public bool IsBold { get; set; }
         public bool IsItalic { get; set; }
         public bool IsStrikeout { get; set; }
@@ -2897,7 +3043,7 @@ namespace Aspose.Cloud
         public string Underline { get; set; }
     }
 
-    public class WorkbookStyleBorderCollection
+    public class BorderCollection
     {
         public string LineStyle { get; set; }
         public Color Color { get; set; }
@@ -2926,7 +3072,7 @@ namespace Aspose.Cloud
         public string TextDirection { get; set; }
         public string VerticalAlignment { get; set; }
         public string HorizontalAlignment { get; set; }
-        public List<WorkbookStyleBorderCollection> BorderCollection { get; set; }
+        public List<BorderCollection> BorderCollection { get; set; }
         public Link link { get; set; }
     }
 
@@ -3270,7 +3416,7 @@ namespace Aspose.Cloud
 
     public class WorkbookImportOption
     {
-        // to do
+        
     }
 
     public class WorksheetList
@@ -4279,4 +4425,360 @@ namespace Aspose.Cloud
     {
         XOR, EnhancedCryptographicProviderV1, StrongCryptographicProvider
     }
+
+    public class PivotTableList
+    {
+        public List<object> PivotTables { get; set; }
+        public Link link { get; set; }
+    }
+
+    public class PivotTablesResponse
+    {
+        public PivotTableList PivotTables { get; set; }
+        public int Code { get; set; }
+        public string Status { get; set; }
+    }
+
+    public class BaseFieldClass
+    {
+        public int AutoShowCount { get; set; }
+        public int AutoShowField { get; set; }
+        public int AutoSortField { get; set; }
+        public int BaseField { get; set; }
+        public int BaseIndex { get; set; }
+        public int BaseItem { get; set; }
+        public string BaseItemPosition { get; set; }
+        public int CurrentPageItem { get; set; }
+        public string DataDisplayFormat { get; set; }
+        public object DisplayName { get; set; }
+        public bool DragToColumn { get; set; }
+        public bool DragToData { get; set; }
+        public bool DragToHide { get; set; }
+        public bool DragToPage { get; set; }
+        public bool DragToRow { get; set; }
+        public string Function { get; set; }
+        public bool InsertBlankRow { get; set; }
+        public bool IsAscendShow { get; set; }
+        public bool IsAscendSort { get; set; }
+        public bool IsAutoShow { get; set; }
+        public bool IsAutoSort { get; set; }
+        public bool IsAutoSubtotals { get; set; }
+        public bool IsCalculatedField { get; set; }
+        public bool IsIncludeNewItemsInFilter { get; set; }
+        public bool IsInsertPageBreaksBetweenItems { get; set; }
+        public bool IsMultipleItemSelectionAllowed { get; set; }
+        public bool IsRepeatItemLabels { get; set; }
+        public int ItemCount { get; set; }
+        public List<object> Items { get; set; }
+        public string Name { get; set; }
+        public int Number { get; set; }
+        public string NumberFormat { get; set; }
+        public List<object> OriginalItems { get; set; }
+        public List<object> PivotItems { get; set; }
+        public int Position { get; set; }
+        public bool ShowAllItems { get; set; }
+        public bool ShowCompact { get; set; }
+        public bool ShowInOutlineForm { get; set; }
+        public bool ShowSubtotalAtTop { get; set; }
+    }
+
+    public class PivotItem
+    {
+        public int Index { get; set; }
+        public bool IsHidden { get; set; }
+        public string Name { get; set; }
+        public string Value { get; set; }
+    }
+
+    public class ColumnField
+    {
+        public int AutoShowCount { get; set; }
+        public int AutoShowField { get; set; }
+        public int AutoSortField { get; set; }
+        public int BaseField { get; set; }
+        public int BaseIndex { get; set; }
+        public int BaseItem { get; set; }
+        public string BaseItemPosition { get; set; }
+        public int CurrentPageItem { get; set; }
+        public string DataDisplayFormat { get; set; }
+        public object DisplayName { get; set; }
+        public bool DragToColumn { get; set; }
+        public bool DragToData { get; set; }
+        public bool DragToHide { get; set; }
+        public bool DragToPage { get; set; }
+        public bool DragToRow { get; set; }
+        public string Function { get; set; }
+        public bool InsertBlankRow { get; set; }
+        public bool IsAscendShow { get; set; }
+        public bool IsAscendSort { get; set; }
+        public bool IsAutoShow { get; set; }
+        public bool IsAutoSort { get; set; }
+        public bool IsAutoSubtotals { get; set; }
+        public bool IsCalculatedField { get; set; }
+        public bool IsIncludeNewItemsInFilter { get; set; }
+        public bool IsInsertPageBreaksBetweenItems { get; set; }
+        public bool IsMultipleItemSelectionAllowed { get; set; }
+        public bool IsRepeatItemLabels { get; set; }
+        public int ItemCount { get; set; }
+        public List<string> Items { get; set; }
+        public string Name { get; set; }
+        public int Number { get; set; }
+        public string NumberFormat { get; set; }
+        public List<string> OriginalItems { get; set; }
+        public List<PivotItem> PivotItems { get; set; }
+        public int Position { get; set; }
+        public bool ShowAllItems { get; set; }
+        public bool ShowCompact { get; set; }
+        public bool ShowInOutlineForm { get; set; }
+        public bool ShowSubtotalAtTop { get; set; }
+    }
+
+    public class ColumnRange
+    {
+        public int EndColumn { get; set; }
+        public int EndRow { get; set; }
+        public int StartColumn { get; set; }
+        public int StartRow { get; set; }
+    }
+
+    public class DataBodyRange
+    {
+        public int EndColumn { get; set; }
+        public int EndRow { get; set; }
+        public int StartColumn { get; set; }
+        public int StartRow { get; set; }
+    }
+
+    public class DataField
+    {
+        public int AutoShowCount { get; set; }
+        public int AutoShowField { get; set; }
+        public int AutoSortField { get; set; }
+        public int BaseField { get; set; }
+        public int BaseIndex { get; set; }
+        public int BaseItem { get; set; }
+        public string BaseItemPosition { get; set; }
+        public int CurrentPageItem { get; set; }
+        public string DataDisplayFormat { get; set; }
+        public string DisplayName { get; set; }
+        public bool DragToColumn { get; set; }
+        public bool DragToData { get; set; }
+        public bool DragToHide { get; set; }
+        public bool DragToPage { get; set; }
+        public bool DragToRow { get; set; }
+        public string Function { get; set; }
+        public object InsertBlankRow { get; set; }
+        public bool IsAscendShow { get; set; }
+        public bool IsAscendSort { get; set; }
+        public bool IsAutoShow { get; set; }
+        public bool IsAutoSort { get; set; }
+        public object IsAutoSubtotals { get; set; }
+        public bool IsCalculatedField { get; set; }
+        public bool IsIncludeNewItemsInFilter { get; set; }
+        public object IsInsertPageBreaksBetweenItems { get; set; }
+        public bool IsMultipleItemSelectionAllowed { get; set; }
+        public bool IsRepeatItemLabels { get; set; }
+        public object ItemCount { get; set; }
+        public object Items { get; set; }
+        public string Name { get; set; }
+        public int Number { get; set; }
+        public string NumberFormat { get; set; }
+        public object OriginalItems { get; set; }
+        public object PivotItems { get; set; }
+        public int Position { get; set; }
+        public bool ShowAllItems { get; set; }
+        public bool ShowCompact { get; set; }
+        public object ShowInOutlineForm { get; set; }
+        public object ShowSubtotalAtTop { get; set; }
+    }
+
+    public class PageField
+    {
+        public int AutoShowCount { get; set; }
+        public int AutoShowField { get; set; }
+        public int AutoSortField { get; set; }
+        public int BaseField { get; set; }
+        public int BaseIndex { get; set; }
+        public int BaseItem { get; set; }
+        public string BaseItemPosition { get; set; }
+        public int CurrentPageItem { get; set; }
+        public string DataDisplayFormat { get; set; }
+        public object DisplayName { get; set; }
+        public bool DragToColumn { get; set; }
+        public bool DragToData { get; set; }
+        public bool DragToHide { get; set; }
+        public bool DragToPage { get; set; }
+        public bool DragToRow { get; set; }
+        public string Function { get; set; }
+        public bool InsertBlankRow { get; set; }
+        public bool IsAscendShow { get; set; }
+        public bool IsAscendSort { get; set; }
+        public bool IsAutoShow { get; set; }
+        public bool IsAutoSort { get; set; }
+        public bool IsAutoSubtotals { get; set; }
+        public bool IsCalculatedField { get; set; }
+        public bool IsIncludeNewItemsInFilter { get; set; }
+        public bool IsInsertPageBreaksBetweenItems { get; set; }
+        public bool IsMultipleItemSelectionAllowed { get; set; }
+        public bool IsRepeatItemLabels { get; set; }
+        public int ItemCount { get; set; }
+        public List<string> Items { get; set; }
+        public string Name { get; set; }
+        public int Number { get; set; }
+        public string NumberFormat { get; set; }
+        public List<string> OriginalItems { get; set; }
+        public List<PivotItem> PivotItems { get; set; }
+        public int Position { get; set; }
+        public bool ShowAllItems { get; set; }
+        public bool ShowCompact { get; set; }
+        public bool ShowInOutlineForm { get; set; }
+        public bool ShowSubtotalAtTop { get; set; }
+    }
+
+    public class RowField
+    {
+        public int AutoShowCount { get; set; }
+        public int AutoShowField { get; set; }
+        public int AutoSortField { get; set; }
+        public int BaseField { get; set; }
+        public int BaseIndex { get; set; }
+        public int BaseItem { get; set; }
+        public string BaseItemPosition { get; set; }
+        public int CurrentPageItem { get; set; }
+        public string DataDisplayFormat { get; set; }
+        public object DisplayName { get; set; }
+        public bool DragToColumn { get; set; }
+        public bool DragToData { get; set; }
+        public bool DragToHide { get; set; }
+        public bool DragToPage { get; set; }
+        public bool DragToRow { get; set; }
+        public string Function { get; set; }
+        public bool InsertBlankRow { get; set; }
+        public bool IsAscendShow { get; set; }
+        public bool IsAscendSort { get; set; }
+        public bool IsAutoShow { get; set; }
+        public bool IsAutoSort { get; set; }
+        public bool IsAutoSubtotals { get; set; }
+        public bool IsCalculatedField { get; set; }
+        public bool IsIncludeNewItemsInFilter { get; set; }
+        public bool IsInsertPageBreaksBetweenItems { get; set; }
+        public bool IsMultipleItemSelectionAllowed { get; set; }
+        public bool IsRepeatItemLabels { get; set; }
+        public int ItemCount { get; set; }
+        public List<string> Items { get; set; }
+        public string Name { get; set; }
+        public int Number { get; set; }
+        public string NumberFormat { get; set; }
+        public List<string> OriginalItems { get; set; }
+        public List<PivotItem> PivotItems { get; set; }
+        public int Position { get; set; }
+        public bool ShowAllItems { get; set; }
+        public bool ShowCompact { get; set; }
+        public bool ShowInOutlineForm { get; set; }
+        public bool ShowSubtotalAtTop { get; set; }
+    }
+
+    public class Range
+    {
+        public int EndColumn { get; set; }
+        public int EndRow { get; set; }
+        public int StartColumn { get; set; }
+        public int StartRow { get; set; }
+    }
+
+    public class PivotTable
+    {
+        public object AltTextDescription { get; set; }
+        public object AltTextTitle { get; set; }
+        public string AutoFormatType { get; set; }
+        public List<BaseFieldClass> BaseFields { get; set; }
+        public List<ColumnField> ColumnFields { get; set; }
+        public bool ColumnGrand { get; set; }
+        public object ColumnHeaderCaption { get; set; }
+        public ColumnRange ColumnRange { get; set; }
+        public bool CustomListSort { get; set; }
+        public DataBodyRange DataBodyRange { get; set; }
+        public object DataField { get; set; }
+        public List<DataField> DataFields { get; set; }
+        public List<string> DataSource { get; set; }
+        public bool DisplayErrorString { get; set; }
+        public bool DisplayImmediateItems { get; set; }
+        public bool DisplayNullString { get; set; }
+        public bool EnableDataValueEditing { get; set; }
+        public bool EnableDrilldown { get; set; }
+        public bool EnableFieldDialog { get; set; }
+        public bool EnableFieldList { get; set; }
+        public bool EnableWizard { get; set; }
+        public string ErrorString { get; set; }
+        public bool FieldListSortAscending { get; set; }
+        public string GrandTotalName { get; set; }
+        public bool HasBlankRows { get; set; }
+        public int Indent { get; set; }
+        public bool IsAutoFormat { get; set; }
+        public bool IsGridDropZones { get; set; }
+        public bool IsMultipleFieldFilters { get; set; }
+        public bool IsSelected { get; set; }
+        public bool ItemPrintTitles { get; set; }
+        public bool ManualUpdate { get; set; }
+        public bool MergeLabels { get; set; }
+        public string MissingItemsLimit { get; set; }
+        public string Name { get; set; }
+        public string NullString { get; set; }
+        public string PageFieldOrder { get; set; }
+        public List<PageField> PageFields { get; set; }
+        public int PageFieldWrapCount { get; set; }
+        public List<object> PivotFilters { get; set; }
+        public object PivotTableStyleName { get; set; }
+        public string PivotTableStyleType { get; set; }
+        public bool PreserveFormatting { get; set; }
+        public bool PrintDrill { get; set; }
+        public bool PrintTitles { get; set; }
+        public bool RefreshDataFlag { get; set; }
+        public bool RefreshDataOnOpeningFile { get; set; }
+        public List<RowField> RowFields { get; set; }
+        public bool RowGrand { get; set; }
+        public object RowHeaderCaption { get; set; }
+        public Range RowRange { get; set; }
+        public bool SaveData { get; set; }
+        public bool ShowDataTips { get; set; }
+        public bool ShowDrill { get; set; }
+        public bool ShowEmptyCol { get; set; }
+        public bool ShowEmptyRow { get; set; }
+        public bool ShowMemberPropertyTips { get; set; }
+        public bool ShowPivotStyleColumnHeader { get; set; }
+        public bool ShowPivotStyleColumnStripes { get; set; }
+        public bool ShowPivotStyleLastColumn { get; set; }
+        public bool ShowPivotStyleRowHeader { get; set; }
+        public bool ShowPivotStyleRowStripes { get; set; }
+        public bool ShowRowHeaderCaption { get; set; }
+        public bool ShowValuesRow { get; set; }
+        public bool SubtotalHiddenPageItems { get; set; }
+        public Range TableRange1 { get; set; }
+        public Range TableRange2 { get; set; }
+        public object Tag { get; set; }
+        public Link link { get; set; }
+    }
+
+    public class PivotTableResponse
+    {
+        public PivotTable PivotTable { get; set; }
+        public int Code { get; set; }
+        public string Status { get; set; }
+    }
+
+    public class PivotTableFieldRequest
+    {
+        public List<int> Data { get; set; }
+    }
+
+    public class CreatePivotTableRequest
+    {
+        public string Name { get; set; }
+        public string SourceData { get; set; }
+        public string DestCellName { get; set; }
+        public bool UseSameSource { get; set; }
+        public List<int> PivotFieldRows { get; set; }
+        public List<int> PivotFieldColumns { get; set; }
+        public List<int> PivotFieldData { get; set; }
+    }    
 }
