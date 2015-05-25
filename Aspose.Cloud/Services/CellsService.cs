@@ -2861,11 +2861,11 @@ namespace Aspose.Cloud
             /// <summary>
             /// Get worksheet pivottables info.
             /// </summary>
-            /// <param name="name"></param>
-            /// <param name="sheetName"></param>
-            /// <param name="folder"></param>
-            /// <param name="storage"></param>
-            /// <returns></returns>
+            /// <param name="name">Document name.</param>
+            /// <param name="sheetName">Worksheet name.</param>
+            /// <param name="folder">Document folder.</param>
+            /// <param name="storage">The document storage.</param>
+            /// <returns>PivotTablesResponse object</returns>
             public PivotTablesResponse GetWorksheetPivottablesInfo(string name, string sheetName, string folder, string storage = "")
             {
                 // get cells/{name}/worksheets/{sheetName}/pivottables?appSid={appSid}&storage={storage}&folder={folder}
@@ -2879,12 +2879,12 @@ namespace Aspose.Cloud
             /// <summary>
             /// Add a pivot table into worksheet.
             /// </summary>
-            /// <param name="name"></param>
-            /// <param name="sheetName"></param>
-            /// <param name="createPivotTableRequest"></param>
-            /// <param name="folder"></param>
-            /// <param name="storage"></param>
-            /// <returns></returns>
+            /// <param name="name">Document name.</param>
+            /// <param name="sheetName">Worksheet name.</param>
+            /// <param name="createPivotTableRequest">Pass an object of type CreatePivotTableRequest</param>
+            /// <param name="folder">Document folder.</param>
+            /// <param name="storage">The document storage.</param>
+            /// <returns>PivotTableResponse object</returns>
             public PivotTableResponse AddAPivotTableIntoWorksheet(string name, string sheetName, CreatePivotTableRequest createPivotTableRequest, string folder, string storage = "")
             {
                 // put cells/{name}/worksheets/{sheetName}/pivottables?appSid={appSid}&storage={storage}&folder={folder}
@@ -2899,10 +2899,10 @@ namespace Aspose.Cloud
             /// <summary>
             /// Delete worksheet pivot tables
             /// </summary>
-            /// <param name="name"></param>
-            /// <param name="sheetName"></param>
-            /// <param name="folder"></param>
-            /// <param name="storage"></param>
+            /// <param name="name">Document name.</param>
+            /// <param name="sheetName">Worksheet name.</param>
+            /// <param name="folder">Document folder.</param>
+            /// <param name="storage">The document storage.</param>
             public void DeleteWorksheetPivotTables(string name, string sheetName, string folder, string storage = "")
             {
                 // delete cells/{name}/worksheets/{sheetName}/pivottables?appSid={appSid}&storage={storage}&folder={folder}
@@ -2915,11 +2915,11 @@ namespace Aspose.Cloud
             /// <summary>
             /// Get worksheet pivottable info by index.
             /// </summary>
-            /// <param name="name"></param>
-            /// <param name="sheetName"></param>
-            /// <param name="pivottableIndex"></param>
-            /// <param name="folder"></param>
-            /// <param name="storage"></param>
+            /// <param name="name">Document name.</param>
+            /// <param name="sheetName">Worksheet name.</param>
+            /// <param name="pivottableIndex">Pivot table index</param>
+            /// <param name="folder">Document folder.</param>
+            /// <param name="storage">The document storage.</param>
             /// <returns></returns>
             public PivotTableResponse GetWorksheetPivottableInfoByIndex(string name, string sheetName, int pivottableIndex, string folder, string storage = "")
             {
@@ -2935,12 +2935,12 @@ namespace Aspose.Cloud
             /// <summary>
             /// Add pivot field into into pivot table
             /// </summary>
-            /// <param name="name"></param>
-            /// <param name="sheetName"></param>
-            /// <param name="pivotTableIndex"></param>
-            /// <param name="pivotTableFieldRequest"></param>
-            /// <param name="folder"></param>
-            /// <param name="storage"></param>
+            /// <param name="name">Document name.</param>
+            /// <param name="sheetName">Worksheet name.</param>
+            /// <param name="pivottableIndex">Pivot table index</param>
+            /// <param name="pivotTableFieldRequest">PivotTableFieldRequest object</param>
+            /// <param name="folder">Document folder.</param>
+            /// <param name="storage">The document storage.</param>
             public void AddPivotFieldIntoIntoPivotTable(string name, string sheetName, int pivotTableIndex, string pivotFieldType, PivotTableFieldRequest pivotTableFieldRequest, string folder, string storage = "")
             {
                 //put   cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/PivotField?appSid={appSid}&storage={storage}&folder={folder}&pivotFieldType={pivotFieldType}
@@ -2949,9 +2949,18 @@ namespace Aspose.Cloud
 
                 JObject jObject = JObject.Parse(ServiceController.Put(apiUrl, AppSid, AppKey, JsonConvert.SerializeObject(pivotTableFieldRequest)));
             }
-
-
-            // Update cell style for pivot table
+            
+            /// <summary>
+            /// Update cell style for pivot table
+            /// </summary>
+            /// <param name="name">Document name.</param>
+            /// <param name="sheetName">Worksheet name.</param>
+            /// <param name="pivottableIndex">Pivot table index</param>
+            /// <param name="column"></param>
+            /// <param name="row"></param>
+            /// <param name="style">WorkbookStyle object</param>
+            /// <param name="folder">Document folder.</param>
+            /// <param name="storage">The document storage.</param>
             public void UpdateCellStyleForPivotTable(string name, string sheetName, int pivotTableIndex, int column, int row, WorkbookStyle style, string folder, string storage = "")
             {
                 // post cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/Format?appSid={appSid}&storage={storage}&folder={folder}
@@ -2959,13 +2968,17 @@ namespace Aspose.Cloud
                 string apiUrl = string.Format(@"cells/{0}/worksheets/{1}/pivottables/{2}/Format?storage={3}&folder={4}&column={5}&row={6}", name, sheetName, pivotTableIndex, storage, folder, column, row);
 
                 JObject jObject = JObject.Parse(ServiceController.Post(apiUrl, AppSid, AppKey, JsonConvert.SerializeObject(style)));
- 
             }
 
-
-
-            // Update style for pivot table
-
+            /// <summary>
+            /// Update style for pivot table 
+            /// </summary>
+            /// <param name="name">Document name.</param>
+            /// <param name="sheetName">Worksheet name.</param>
+            /// <param name="pivottableIndex">Pivot table index</param>
+            /// <param name="style">WorkbookStyle object</param>
+            /// <param name="folder">Document folder.</param>
+            /// <param name="storage">The document storage.</param>
             public void UpdateStyleForPivotTable(string name, string sheetName, int pivotTableIndex, WorkbookStyle style, string folder, string storage = "")
             {
                 //post  cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/FormatAll?appSid={appSid}&storage={storage}&folder={folder}
@@ -2973,18 +2986,16 @@ namespace Aspose.Cloud
                 string apiUrl = string.Format(@"cells/{0}/worksheets/{1}/pivottables/{2}/FormatAll?storage={3}&folder={4}", name, sheetName, pivotTableIndex, storage, folder);
 
                 JObject jObject = JObject.Parse(ServiceController.Post(apiUrl, AppSid, AppKey, JsonConvert.SerializeObject(style)));
- 
             }
-
 
             /// <summary>
             /// Delete worksheet pivot table by index
             /// </summary>
-            /// <param name="name"></param>
-            /// <param name="sheetName"></param>
-            /// <param name="pivotTableIndex"></param>
-            /// <param name="folder"></param>
-            /// <param name="storage"></param>
+            /// <param name="name">Document name.</param>
+            /// <param name="sheetName">Worksheet name.</param>
+            /// <param name="pivottableIndex">Pivot table index</param>
+            /// <param name="folder">Document folder.</param>
+            /// <param name="storage">The document storage.</param>
             public void DeleteWorksheetPivotTableByIndex(string name, string sheetName, int pivotTableIndex, string folder, string storage = "")
             {
                 //     delete cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}?appSid={appSid}&storage={storage}&folder={folder}
