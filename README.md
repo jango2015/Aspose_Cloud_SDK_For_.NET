@@ -1,3 +1,14 @@
+## IMPORTANT NOTICE
+This SDK is no longer updated because we have created a newer and much improved version of this SDK available at following product wise repositories
+* [Aspose.Storage Cloud SDK for .NET](https://goo.gl/nnd6k3)
+* [Aspose.Words Cloud SDK for .NET](https://goo.gl/tfdRs8)
+* [Aspose.Cells Cloud SDK for .NET](https://goo.gl/slpQiH)
+* [Aspose.Pdf Cloud SDK for .NET](https://goo.gl/zwky6q)
+
+You are kindly requested to try our new SDKs and then plan to migrate. We will be more than happy to help and assist you if you face any issues during or after migration. We will however continue to provide support to our existing customers for some time.
+
+---
+
 <div>
   <h3>Aspose Cloud SDK for .NET Repository</h3>
   <p>Aspose Cloud SDK for .NET is an open source software development kit that makes it super simple to call Aspose Cloud APIs. We are pleased to announce a new totally revamped and greatly improved version. This version of the SDK is designed to work like a product. Now you can simply create an instance of any supported Cloud API service and then call its methods with a single line of code. All the complex authentication, request and response manipulation is seamlessly handled in the back-end.</p>
