@@ -1,9 +1,14 @@
 ## IMPORTANT NOTICE
 This SDK is no longer updated because we have created a newer and much improved version of this SDK available at following product wise repositories
-* [Aspose.Storage Cloud SDK for .NET](https://goo.gl/nnd6k3)
-* [Aspose.Words Cloud SDK for .NET](https://goo.gl/tfdRs8)
-* [Aspose.Cells Cloud SDK for .NET](https://goo.gl/slpQiH)
-* [Aspose.Pdf Cloud SDK for .NET](https://goo.gl/zwky6q)
+* [Aspose.Storage Cloud SDK for .NET](https://goo.gl/CiWkqT)
+* [Aspose.Words Cloud SDK for .NET](https://goo.gl/bWjZHC)
+* [Aspose.Cells Cloud SDK for .NET](https://goo.gl/i85738)
+* [Aspose.Pdf Cloud SDK for .NET](https://goo.gl/f0Uyt2)
+* [Aspose.Tasks Cloud SDK for .NET](https://goo.gl/4XRnTN)
+* [Aspose.Imaging Cloud SDK for .NET](https://goo.gl/MnMxci)
+* [Aspose.Slides Cloud SDK for .NET](https://goo.gl/QSzUwi)
+* [Aspose.OCR Cloud SDK for .NET](https://goo.gl/kFaakV)
+* [Aspose.Email Cloud SDK for .NET](https://goo.gl/fz5r5g)
 
 You are kindly requested to try our new SDKs and then plan to migrate. We will be more than happy to help and assist you if you face any issues during or after migration. We will however continue to provide support to our existing customers for some time.
 
